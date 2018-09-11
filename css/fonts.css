@@ -1,0 +1,9 @@
+@font-face {
+    font-family: avenir-light;
+    src: url('../fonts/avenir-light.otf');
+}
+
+@font-face {
+    font-family: avenir-heavy;
+    src: url('../fonts/avenir-heavy.ttf');
+}

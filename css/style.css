@@ -1,0 +1,486 @@
+@import 'fonts.css';
+
+
+
+/* ========================== */
+/* ========= COMMON ========= */
+/* ========================== */
+
+* {
+    margin:0px; padding:0px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    text-align:center; 
+    /*background-image: url(../img/bg.jpg);*/
+    /*background:#151515;*/
+    background:#000;
+    color:#fff;
+    font-family: avenir-light;
+}
+
+a {
+    color:#fff;
+    text-shadow: 0 0 3px #000;
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+a:hover {
+    color:#fff;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+/* ========================================= */
+/* ========= POSITION AND WRAPPERS ========= */
+/* ========================================= */
+
+.wrapper, .timer-wrapper, .background, .left div, .right div,
+header, .rotating-layer, .timer, .links-wrapper, .top, .bottom,
+.destiny-logo {
+    position: absolute;
+}
+
+.wrapper, .timer-wrapper, .left div, .right div,
+.background, .slider, .links-wrapper, .top, .bottom {
+    transition: top 0.3s ease-out;
+}
+
+.timer-wrapper, .links-wrapper {
+    top: 50.6%;
+}
+
+.wrapper {
+    top: 50.5%;
+}
+
+.left div, .right div {
+    top: 50%;
+}
+
+#circle1 {
+    opacity: 0.5;
+}
+
+#circle2 {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-out;    
+}
+
+body:hover .wrapper, body:hover .timer-wrapper,
+body:hover .left div, body:hover .right div,
+body:hover .background, body:hover .links-wrapper {
+    top: 50%;
+}
+
+body:hover .timer {
+    left: -173px;
+    right: -183px;
+}
+
+body:hover #circle2 {
+    opacity: 1;
+}
+
+body:hover #circle1 {
+    opacity: 0.7;
+}
+
+body:hover .top {
+    top: -105px;
+}
+
+body:hover .bottom {
+    top: 75px;
+}
+
+body:hover .left div {
+    right: 320px;
+}
+
+body:hover .right div {
+    left: 320px;
+}
+
+body:hover .destiny-logo {
+    left: -173px;
+    top: -131px;
+    right: -170px;
+    bottom: -195px;
+}
+
+body:hover .background-fader {
+    opacity: 0.7;
+}
+
+.background {
+    top: 50.5%;
+}
+
+.wrapper, .timer-wrapper {
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.background {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.background-inner {
+    margin-top: -50%;
+    position: relative;
+}
+
+
+
+/* ========================= */
+/* ========= LINKS ========= */
+/* ========================= */
+
+.left div, .right div {
+    width: 100%;
+    margin-top: -13px;
+    transition: left 0.3s ease-out, right 0.3s ease-out;
+}
+
+.left div {
+    right: 300px;
+    text-align: right;
+}
+
+.right div {
+    left: 300px;
+    text-align: left;
+}
+
+.left a, .right a, .top a, .bottom a {
+    width: auto;
+    padding: 0px 20px;
+    display: inline-block;
+    margin: auto;
+    transition: padding 0.3s ease-out;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.left a:hover, .right a:hover, .top a:hover, .bottom a:hover {
+    padding: 0px 30px 4px !important;
+}
+
+.left, .right, .top, .bottom {
+    font-size: 18pt;
+    /*transition: font-size 0.3s ease-out;*/
+}
+
+body:hover .left, body:hover .right, body:hover .top, body:hover .bottom {
+    /*font-size: 18pt;*/
+}
+
+.left, .right {
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.links-wrapper {
+    left: 0;
+    right: 0;
+    height: 0;
+}
+
+.top, .bottom {
+    width: 100%;
+    height: 30px;
+    left: 0;
+}
+
+.top {
+    top: -95px;
+}
+
+.bottom {
+    top: 65px;    
+}
+
+
+/* ========================== */
+/* ========= HEADER ========= */
+/* ========================== */
+
+header {
+    position: absolute;
+    width: 400px;
+    height: 44px;
+    left: -200px;
+    top: -282px;
+    font-size: 28pt;
+}
+
+header a {
+    opacity: 0.9;
+    text-decoration: none;
+    font-family: avenir-heavy;
+}
+
+
+
+/* ========================== */
+/* ========= SLIDER ========= */
+/* ========================== */
+
+#light {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.slider {
+    overflow: hidden;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*-webkit-mask: url("../img/light-mask.png")0 0/100% auto;*/
+}
+
+.background-fader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-out;
+}
+
+.background-fader img {
+    position: absolute;
+    display: block;
+    height: 50%;
+    width: 50%;
+    z-index: 1;
+}
+
+.background-fader img:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+
+.background-fader img:nth-child(2) {
+    left: 50%;
+    top: 0;
+}
+
+.background-fader img:nth-child(3) {
+    left: 0;
+    top: 50%;    
+}
+
+.background-fader img:nth-child(4) {
+    left: 50%;
+    top: 50%;    
+}
+
+.slider-inner {
+    margin: auto -100px;
+    position: relative;
+    height: 100%;
+}
+
+.slider-inner div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    right: -100px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-out, left 10s linear, right 10s linear;
+    /* display: none; */
+}
+
+.slider-inner .slider-item-active-opacity {
+    opacity: 1 !important;
+}
+
+.slider-inner .slider-item-active-transform {
+    left: -100px;
+    right: 100px;
+    /* display: inherit; */
+}
+
+.slider #image1 { background-image: url('../img/slider1.jpg'); }
+.slider #image2 { background-image: url('../img/slider2.jpg'); }
+.slider #image3 { background-image: url('../img/slider3.jpg'); }
+.slider #image4 { background-image: url('../img/slider4.jpg'); }
+.slider #image5 { background-image: url('../img/slider5.jpg'); }
+
+
+/* =========================== */
+/* ========= CIRCLES ========= */
+/* =========================== */
+
+.rotating-layer {
+    position:absolute;
+    top:-600px;
+    left:-600px;
+    width:1200px;
+    height:1200px;
+}
+
+#circle1 { 
+    background: url('../img/circle1.png');
+}
+
+#circle2 {
+    background: url('../img/circle2.png');
+}
+
+
+
+/* ================================ */
+/* ========= DESTINY LOGO ========= */
+/* ================================ */
+
+.destiny-logo {
+    left: -163px;
+    top: -121px;
+    right: -160px;
+    bottom: -185px;
+    transition: left, top, right, bottom;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+
+
+/* ========================= */
+/* ========= TIMER ========= */
+/* ========================= */
+
+.digits {
+    display: none;
+}
+
+.timer {
+    top: -50px;
+    left: -170px;
+    bottom: -50px;
+    right: -180px;
+    overflow: visible;
+    opacity: 0.9;
+    transition: left 0.3s ease-out, right 0.3s ease-out;
+}
+
+body:hover .timer:hover {
+    left: -180px;
+    right: -190px;
+    cursor: pointer;
+}
+
+.timer div {
+    display: inline-block;
+    float: left;
+}
+
+.timer .digit, .timer .colon {
+    height: 100%;
+}
+
+.timer .digit {
+    width: 50%;
+    position: relative;
+}
+
+.timer svg {
+    -webkit-filter: drop-shadow( -2px -2px 2px #000 );
+    filter: drop-shadow( 2px -2px 2px #000 );
+}
+
+.digit svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.digit-1 { z-index: 10; }
+.digit-2 { z-index: 9; }
+.digit-3 { z-index: 8; }
+.digit-4 { z-index: 7; }
+.digit-5 { z-index: 6; }
+.digit-6 { z-index: 5; }
+.digit-7 { z-index: 4; }
+.digit-8 { z-index: 3; }
+.digit-9 { z-index: 2; }
+.digit-0 { z-index: 1; }
+
+.timer .colon {
+    width: 4%;
+}
+
+.hours, .minutes, .seconds, .days {
+    height: 100%;
+    width: 30.5%;
+}
+
+
+
+/* ============================== */
+/* ========= SOUNDCLOUD ========= */
+/* ============================== */
+
+.soundcloud {
+    width: 100%;
+    height: 100%;
+    margin-top: -8px;
+}
+
+.soundcloud-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+
+.soundcloud-area:hover .soundcloud-wrapper {
+    height: 48px;
+}
+
+.soundcloud-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100px;
+}
