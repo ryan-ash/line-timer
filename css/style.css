@@ -50,7 +50,7 @@ a:hover {
 
 .wrapper, .timer-wrapper, .background, .left div, .right div,
 header, .rotating-layer, .timer, .links-wrapper, .top, .bottom,
-.destiny-logo {
+.middle-figure {
     position: absolute;
 }
 
@@ -115,11 +115,11 @@ body:hover .right div {
     left: 320px;
 }
 
-body:hover .destiny-logo {
-    left: -173px;
-    top: -131px;
-    right: -170px;
-    bottom: -195px;
+body:hover .middle-figure {
+    left: -143px;
+    top: -143px;
+    right: -143px;
+    bottom: -143px;
 }
 
 body:hover .background-fader {
@@ -364,14 +364,14 @@ header a {
 
 
 /* ================================ */
-/* ========= DESTINY LOGO ========= */
+/* ========= MIDDLE FIGURE ======== */
 /* ================================ */
 
-.destiny-logo {
-    left: -163px;
-    top: -121px;
-    right: -160px;
-    bottom: -185px;
+.middle-figure {
+    left: -140px;
+    top: -140px;
+    right: -140px;
+    bottom: -140px;
     transition: left, top, right, bottom;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;

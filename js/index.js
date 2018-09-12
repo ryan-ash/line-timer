@@ -11,10 +11,10 @@ $(document).ready(function() {
     var $slider_items = $('.slider-inner div');
     var $slider_last_item;
 
-    var destiny_logo_path_duration = 300;
-    var destiny_logo_max_delay = 100;
-    var destiny_logo_max_delta = 10000;
-    var destiny_logo_vivus = [];
+    var middle_figure_path_duration = 300;
+    var middle_figure_max_delay = 100;
+    var middle_figure_max_delta = 10000;
+    var middle_figure_vivus = [];
 
     window.onresize = update_background_position;
 
@@ -25,8 +25,8 @@ $(document).ready(function() {
     light_callback();
     slider_step();
 
-    destiny_logo_start_animation("destiny-logo");
-    destiny_logo_start_animation("destiny-logo-flipped", true);
+    middle_figure_start_animation("square");
+    middle_figure_start_animation("square-flipped", true);
     
     function rotate($div, speed, degree, deltaDegree) {        
         $div.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
@@ -43,11 +43,11 @@ $(document).ready(function() {
         }, speed);
     }
 
-    function destiny_logo_start_animation(id, delayed) {
-        delay = randomize(destiny_logo_max_delay);
-        duration = delay + randomize(destiny_logo_path_duration);
+    function middle_figure_start_animation(id, delayed) {
+        delay = randomize(middle_figure_max_delay);
+        duration = delay + randomize(middle_figure_path_duration);
         
-        destiny_logo_vivus[id] = new Vivus(
+        middle_figure_vivus[id] = new Vivus(
             id, {
                 type: 'delayed',
                 delay: delay,
@@ -55,23 +55,23 @@ $(document).ready(function() {
                 start: 'manual'
             }
         );
-        destiny_logo_vivus[id].setFrameProgress(0);
+        middle_figure_vivus[id].setFrameProgress(0);
 
         if (delayed) {
             setTimeout(function() {
-                destiny_logo_animation_step(id, 1);
-            }, randomize(destiny_logo_max_delta));
+                middle_figure_animation_step(id, 1);
+            }, randomize(middle_figure_max_delta));
             return;
         }
 
-        destiny_logo_animation_step(id, 1);
+        middle_figure_animation_step(id, 1);
     }
 
-    function destiny_logo_animation_step(id, direction) {
-        timeout = randomize(destiny_logo_max_delta);
-        destiny_logo_vivus[id].play(direction);
+    function middle_figure_animation_step(id, direction) {
+        timeout = randomize(middle_figure_max_delta);
+        middle_figure_vivus[id].play(direction);
         setTimeout(function() {
-            destiny_logo_animation_step(id, direction * -1);
+            middle_figure_animation_step(id, direction * -1);
         }, timeout);
     }
 

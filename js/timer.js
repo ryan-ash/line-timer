@@ -87,13 +87,13 @@ $(document).ready(function() {
 
     function click_animation_logic() {
         vivus_objects["click_animation"].play(1);
-        $(".background-fader, .background-inner svg, .destiny-logo, .rotating-layer, .left a, .right a, .top a, .bottom a").each(function() {
+        $(".background-fader, .background-inner svg, .middle-figure, .rotating-layer, .left a, .right a, .top a, .bottom a").each(function() {
             $(this).addClass("clean");
         });
 
         $(".slider, .timer").addClass("bright");
 
-        redirect("https://eu.battle.net/shop/ru/product/game/destiny");
+        redirect("#time-over-link");
     }
 
     function redirect(url) {
