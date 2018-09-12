@@ -1,7 +1,12 @@
 $(document).ready(function() {
     var diff = config["timer"]["minutes-to-countdown"];
     var countdown_date_obj = new Date(Date.now() + diff*60000);
-    var date_till = dateFormat(countdown_date_obj, "mmmm d yyyy HH:MM:ss") + " GMT+0300";
+    var timezone = " GMT+0300";
+    var date_till = config["timer"]["fixed-date"]
+        ? config["timer"]["date"] + timezone
+        : dateFormat(countdown_date_obj, "mmmm d yyyy HH:MM:ss") + timezone;
+
+    console.log(date_till);
 
     var $digits;
     var $colon;

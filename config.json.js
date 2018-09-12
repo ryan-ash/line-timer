@@ -23,7 +23,7 @@ var config = {
     },
     "timer": {
         "fixed-date": false,
-        "date": "TODO: ADD EXAMPLE FUTURE DATE",
+        "date": "September 14 2018 12:11:16",
         "minutes-to-countdown": "5",
         "days-enabled": false,
         "redirect-on-zero": false,
