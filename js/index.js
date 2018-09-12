@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    init_links();
+
     var light;
     var light_on = false;
     var light_restart_delay = 1000;
@@ -13,7 +16,8 @@ $(document).ready(function() {
 
     var middle_figure_path_duration = 300;
     var middle_figure_max_delay = 100;
-    var middle_figure_max_delta = 10000;
+    var middle_figure_max_delta = 5000;
+    var middle_figure_flipped_start_offset_range = 3000;
     var middle_figure_vivus = [];
 
     window.onresize = update_background_position;
@@ -27,6 +31,19 @@ $(document).ready(function() {
 
     middle_figure_start_animation("square");
     middle_figure_start_animation("square-flipped", true);
+
+    function init_links() {
+        for (var link_location in config["links"]) {
+            var selector = "." + link_location + " a";
+            var link = config["links"][link_location];
+            if (!link["visible"]) {
+                $(selector).remove();
+                continue;
+            }
+            $(selector).attr("href", link["url"]);
+            $(selector).html(link["text"]);
+        }
+    }
     
     function rotate($div, speed, degree, deltaDegree) {        
         $div.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
@@ -60,7 +77,7 @@ $(document).ready(function() {
         if (delayed) {
             setTimeout(function() {
                 middle_figure_animation_step(id, 1);
-            }, randomize(middle_figure_max_delta));
+            }, randomize(middle_figure_flipped_start_offset_range));
             return;
         }
 

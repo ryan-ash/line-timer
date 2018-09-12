@@ -1,8 +1,7 @@
 $(document).ready(function() {
-    var diff = 5;
-    var date_obj = new Date(Date.now() + diff*60000);
+    var diff = config["timer"]["minutes-to-countdown"];
+    var countdown_date_obj = new Date(Date.now() + diff*60000);
     var date_till = dateFormat(date_obj, "mmmm d yyyy HH:MM:ss") + " GMT+0300";
-    console.log(date_till);
 
     var $digits;
     var $colon;
