@@ -22,7 +22,7 @@ $(document).ready(function() {
     var timer_downtime = 1000;
     var timer_finished_glitch_roll_delta = 200;
     var finished_animation_duration = 40;
-    var seconds_before_redirect = 2;
+    var seconds_before_redirect = config["timer"]["seconds-before-redirect"];
 
     var digit_tokens = [];
 
@@ -75,21 +75,8 @@ $(document).ready(function() {
             $svg_obj.css("opacity", 1);
             vivus_objects[temp_colon_id].play(1);
         });
-
-        $('.timer').click(click_animation_logic);
         
         timer_init(date_till);
-    }
-
-    function click_animation_logic() {
-        vivus_objects["click_animation"].play(1);
-        $(".background-fader, .background-inner svg, .middle-figure, .rotating-layer, .left a, .right a, .top a, .bottom a").each(function() {
-            $(this).addClass("clean");
-        });
-
-        $(".slider, .timer").addClass("bright");
-
-        redirect("#time-over-link");
     }
 
     function redirect(url) {
@@ -234,6 +221,16 @@ $(document).ready(function() {
         if (config["timer"]["digit-glitch-on-finish"]) {
             var time_interval = setInterval(digit_glitch, timer_finished_glitch_roll_delta);
         }
+
+        $(".background-fader, .background-inner svg, .middle-figure, .rotating-layer, .left a, .right a, .top a, .bottom a").each(function() {
+            $(this).addClass("clean");
+        });
+
+        $(".slider, .timer").addClass("bright");
+
+        if (config["timer"]["redirect-on-zero"]) {
+            redirect(config["timer"]["redirect-url"]);
+        }
     }
 
     function digit_glitch() {
@@ -268,7 +265,6 @@ $(document).ready(function() {
     }
 
     function vivus_number_show(id, skip_jump) {
-        console.log(id);
         var vivus_obj = vivus_objects[id];
         var $digit = $('#' + id);
         vivus_obj.setFrameProgress(0);

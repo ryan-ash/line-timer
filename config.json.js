@@ -28,6 +28,7 @@ var config = {
         "days-enabled": false,
         "redirect-on-zero": false,
         "redirect-url": "https://trickychaos.com",
+        "seconds-before-redirect": 3,
         "digit-glitch-on-finish": false
     }
 };
