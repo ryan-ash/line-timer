@@ -455,12 +455,14 @@ body:hover .timer:hover {
     width: 4%;
 }
 
-.hours, .minutes, .seconds, .days {
+.timer-block {
     height: 100%;
     width: 30.5%;
 }
 
-
+.days-enabled .timer-block {
+    width: 22%;
+}
 
 /* ============================== */
 /* ========= SOUNDCLOUD ========= */

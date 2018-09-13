@@ -18,7 +18,6 @@ $(document).ready(function() {
         'seconds': "00",
     };
     var last_timer_parsed = null;
-    // var digit_animation_duration = 25;
     var digit_animation_duration = 20;
     var timer_downtime = 1000;
     var timer_finished_glitch_roll_delta = 200;
@@ -38,16 +37,22 @@ $(document).ready(function() {
 
         $colon = $($digits[10]).html();
 
-        $colons = $('.colon');
-        $colons.html($colon);
-
-        // $days = $('.days');
+        $days = $('.days');
         $hours = $('.hours');
         $minutes = $('.minutes');
         $seconds = $('.seconds');
 
-        // fill_container($days, 9, 0);
-        // fill_container($days, 9, 1);
+        if (config["timer"]["days-enabled"]) {
+            fill_container($days, 9, 0);
+            fill_container($days, 9, 1);
+            $("body").addClass("days-enabled");
+        } else {
+            $(".days, #days-colon").remove();
+        }
+
+        $colons = $('.colon');
+        $colons.html($colon);
+
         fill_container($hours, 9, 0);
         fill_container($hours, 9, 1);
         fill_container($minutes, 5, 0);
@@ -71,18 +76,7 @@ $(document).ready(function() {
             vivus_objects[temp_colon_id].play(1);
         });
 
-        // vivus_objects['click_animation'] = new Vivus(
-        //     "click_animation", {
-        //         type: 'sync',
-        //         duration: finished_animation_duration,
-        //         start: 'manual'
-        //     }
-        // );
-        // vivus_objects['click_animation'].setFrameProgress(0);
-        // $("#click_animation").css("display", "block");
-
         $('.timer').click(click_animation_logic);
-
         
         timer_init(date_till);
     }
@@ -114,7 +108,7 @@ $(document).ready(function() {
         for (i = 0; i <= till; i++) {
             var digit_obj = $digits[i];
             var $digit = $($(digit_obj).children()[0]);
-            var type = $container.attr('class');
+            var type = $container.attr('type');
             var new_id = get_vivus_id(type, position, i);
 
             $digit.attr('id', new_id);
@@ -129,7 +123,7 @@ $(document).ready(function() {
 
     function prepare_container($container, till, position) {
         for (i = 0; i <= till; i++) {
-            var type = $container.attr('class');
+            var type = $container.attr('type');
             var new_id = get_vivus_id(type, position, i);
             var $digit = $("#" + new_id);
             prepare_vivus_for_element(new_id, $digit);
@@ -158,15 +152,18 @@ $(document).ready(function() {
         minutes = (minutes < 0) ? 0 : minutes;
         var hours = Math.floor((t / 1000 / 60 / 60) % 24);
         hours = (hours < 0) ? 0 : hours;
-        // var days = Math.floor(t / 1000 / 60 / 60 / 24);
-        // days = (days < 0) ? 0 : days;
-        return {
+        result = {
             'total': t,
-            // 'days': days,
             'hours': hours,
             'minutes': minutes,
             'seconds': seconds
         };
+        if (config["timer"]["days-enabled"]) {
+            var days = Math.floor(t / 1000 / 60 / 60 / 24);
+            days = (days < 0) ? 0 : days;
+            result["days"] = days;
+        }
+        return result;
     }
 
     function timer_init(endtime) {
@@ -219,7 +216,11 @@ $(document).ready(function() {
             }
             continue;
         }
-        string_time_left = /*new_timer_parsed["days"] + ":" + */new_timer_parsed["hours"] + ":" + new_timer_parsed["minutes"] + ":" + new_timer_parsed["seconds"];
+        string_time_left = new_timer_parsed["hours"] + ":" + new_timer_parsed["minutes"] + ":" + new_timer_parsed["seconds"];
+
+        if (config["timer"]["days-enabled"]) {
+            string_time_left = new_timer_parsed["days"] + ":" + string_time_left;
+        }
 
         $('title').html(string_time_left);
 
@@ -230,7 +231,9 @@ $(document).ready(function() {
 
     function timer_finished() {
         $("body").addClass("zero");
-        // var time_interval = setInterval(digit_glitch, timer_finished_glitch_roll_delta);
+        if (config["timer"]["digit-glitch-on-finish"]) {
+            var time_interval = setInterval(digit_glitch, timer_finished_glitch_roll_delta);
+        }
     }
 
     function digit_glitch() {
@@ -265,6 +268,7 @@ $(document).ready(function() {
     }
 
     function vivus_number_show(id, skip_jump) {
+        console.log(id);
         var vivus_obj = vivus_objects[id];
         var $digit = $('#' + id);
         vivus_obj.setFrameProgress(0);

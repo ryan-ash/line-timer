@@ -111,23 +111,20 @@ $(document).ready(function() {
 
     function light_callback() {
         light_on = !light_on;
-        //setTimeout(function() {
-            delay = Math.floor(Math.random() * light_max_delay / 2 + light_max_delay / 2);
-            duration = delay + Math.floor(Math.random() * light_path_duration / 2 + light_path_duration / 2);
-            light = new Vivus(
-                'light', 
-                {
-                    type: 'delayed',
-                    delay: delay,
-                    duration: duration,
-                    start: 'manual'
-                },
-                light_callback
-            );
-            
-            light.setFrameProgress(light_on);
-            //light.play(light_on ? -1 : 1);
-        //}, light_restart_delay);
+        delay = Math.floor(Math.random() * light_max_delay / 2 + light_max_delay / 2);
+        duration = delay + Math.floor(Math.random() * light_path_duration / 2 + light_path_duration / 2);
+        light = new Vivus(
+            'light', 
+            {
+                type: 'delayed',
+                delay: delay,
+                duration: duration,
+                start: 'manual'
+            },
+            light_callback
+        );
+        
+        light.setFrameProgress(light_on);
     }
 
     function slider_step() {

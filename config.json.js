@@ -23,10 +23,11 @@ var config = {
     },
     "timer": {
         "fixed-date": false,
-        "date": "September 14 2018 12:11:16",
+        "date": "September 20 2018 12:11:16",
         "minutes-to-countdown": "5",
         "days-enabled": false,
         "redirect-on-zero": false,
-        "redirect-url": "https://trickychaos.com"
+        "redirect-url": "https://trickychaos.com",
+        "digit-glitch-on-finish": false
     }
 };
