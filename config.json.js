@@ -25,10 +25,11 @@ var config = {
         "fixed-date": false,
         "date": "September 20 2018 12:11:16",
         "minutes-to-countdown": "5",
-        "days-enabled": false,
+        "days-enabled": true,
         "redirect-on-zero": false,
         "redirect-url": "https://trickychaos.com",
         "seconds-before-redirect": 3,
-        "digit-glitch-on-finish": false
+        "digit-glitch-on-finish": false,
+        "destination-tooltip": false
     }
 };

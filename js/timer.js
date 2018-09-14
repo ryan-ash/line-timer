@@ -75,6 +75,10 @@ $(document).ready(function() {
             $svg_obj.css("opacity", 1);
             vivus_objects[temp_colon_id].play(1);
         });
+
+        if (config["timer"]["destination-tooltip"]) {
+            $(".timer").attr("title", date_till);
+        }
         
         timer_init(date_till);
     }
