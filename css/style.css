@@ -351,11 +351,11 @@ header a {
     /* display: inherit; */
 }
 
-.slider #image1 { background-image: url('../img/slider1.jpg'); }
-.slider #image2 { background-image: url('../img/slider2.jpg'); }
-.slider #image3 { background-image: url('../img/slider3.jpg'); }
-.slider #image4 { background-image: url('../img/slider4.jpg'); }
-.slider #image5 { background-image: url('../img/slider5.jpg'); }
+.slider #image1 { background-image: url('../img/slider/1.jpg'); }
+.slider #image2 { background-image: url('../img/slider/2.jpg'); }
+.slider #image3 { background-image: url('../img/slider/3.jpg'); }
+.slider #image4 { background-image: url('../img/slider/4.jpg'); }
+.slider #image5 { background-image: url('../img/slider/5.jpg'); }
 
 
 /* =========================== */
