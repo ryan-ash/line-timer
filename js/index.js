@@ -24,6 +24,8 @@ $(document).ready(function() {
 
     rotate($("#circle1"), 50, 0, -0.1);
     rotate($("#circle2"), 50, 0.7, 0.06);
+    rotate($(".more .colon:nth-child(1)"), 50, 0.7, 20);
+    rotate($(".more .colon:nth-child(2)"), 50, 0.7, -30);
 
     update_background_position();
     light_callback();

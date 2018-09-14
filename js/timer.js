@@ -152,6 +152,12 @@ $(document).ready(function() {
         if (config["timer"]["days-enabled"]) {
             var days = Math.floor(t / 1000 / 60 / 60 / 24);
             days = (days < 0) ? 0 : days;
+            if (days > 99) {
+                $(".timer .more").addClass("enabled");
+                days = 99;
+            } else {
+                $(".timer .more").removeClass("enabled");
+            }
             result["days"] = days;
         }
         return result;
@@ -207,13 +213,15 @@ $(document).ready(function() {
             }
             continue;
         }
-        string_time_left = new_timer_parsed["hours"] + ":" + new_timer_parsed["minutes"] + ":" + new_timer_parsed["seconds"];
+        if (config["timer"]["update-title"]) {
+            string_time_left = new_timer_parsed["hours"] + ":" + new_timer_parsed["minutes"] + ":" + new_timer_parsed["seconds"];
 
-        if (config["timer"]["days-enabled"]) {
-            string_time_left = new_timer_parsed["days"] + ":" + string_time_left;
+            if (config["timer"]["days-enabled"]) {
+                string_time_left = new_timer_parsed["days"] + ":" + string_time_left;
+            }
+
+            $('title').html(string_time_left);
         }
-
-        $('title').html(string_time_left);
 
         last_timer_parsed = $.extend({}, new_timer_parsed);
 

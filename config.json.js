@@ -23,13 +23,14 @@ var config = {
     },
     "timer": {
         "fixed-date": false,
-        "date": "September 20 2018 12:11:16",
+        "date": "May 13 2077 22:22:22",
         "minutes-to-countdown": "5",
-        "days-enabled": true,
+        "days-enabled": false,
         "redirect-on-zero": false,
         "redirect-url": "https://trickychaos.com",
         "seconds-before-redirect": 3,
         "digit-glitch-on-finish": false,
-        "destination-tooltip": false
+        "destination-tooltip": false,
+        "update-title": true
     }
 };
