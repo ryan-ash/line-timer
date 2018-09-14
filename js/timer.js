@@ -141,8 +141,18 @@ $(document).ready(function() {
         seconds = (seconds < 0) ? 0 : seconds;
         var minutes = Math.floor((t / 1000 / 60) % 60);
         minutes = (minutes < 0) ? 0 : minutes;
-        var hours = Math.floor((t / 1000 / 60 / 60) % 24);
+        var hours = Math.floor(t / 1000 / 60 / 60);
         hours = (hours < 0) ? 0 : hours;
+        if (config["timer"]["days-enabled"]) {
+            hours %= 24;
+        } else {
+            if (hours > 99) {
+                $(".timer .more").addClass("enabled");
+                hours = 99;
+            } else {
+                $(".timer .more").removeClass("enabled");
+            }
+        }
         result = {
             'total': t,
             'hours': hours,

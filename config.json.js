@@ -2,13 +2,13 @@ var config = {
     "links": {
         "left": {
             "visible": false,
-            "url": "",
-            "text": ""
+            "url": "https://medium.com/@ryan_ash",
+            "text": "Medium"
         },
         "right": {
             "visible": false,
-            "url": "",
-            "text": ""
+            "url": "https://soundcloud.com/ryan-d-ash",
+            "text": "SoundCloud"
         },
         "top": {
             "visible": true,
